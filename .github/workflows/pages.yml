@@ -1,0 +1,65 @@
+name: GitHub Pages — Gürbüz Oto
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Pages adresini al
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Gerçek yayın adresiyle SEO dosyalarını oluştur
+        env:
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
+        run: node scripts/configure-site.mjs
+      - name: Siteyi doğrula
+        run: node scripts/check.mjs
+      - name: Yayın dosyalarını hazırla
+        run: node scripts/build-public.mjs
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - name: GitHub Pages yayınla
+        id: deployment
+        uses: actions/deploy-pages@v4
+  lighthouse:
+    name: Yayındaki gerçek Lighthouse raporu
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Mobil ve masaüstü ölçümü
+        env:
+          AUDIT_URL: ${{ needs.deploy.outputs.page_url }}
+        run: |
+          mkdir -p lighthouse-reports
+          npx --yes lighthouse@13 "$AUDIT_URL" --chrome-flags="--headless --no-sandbox" --only-categories=performance,accessibility,best-practices,seo --output=html --output=json --output-path=lighthouse-reports/mobile --quiet
+          npx --yes lighthouse@13 "$AUDIT_URL" --preset=desktop --chrome-flags="--headless --no-sandbox" --only-categories=performance,accessibility,best-practices,seo --output=html --output=json --output-path=lighthouse-reports/desktop --quiet
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gurbuz-oto-lighthouse-raporlari
+          path: lighthouse-reports
+          retention-days: 30

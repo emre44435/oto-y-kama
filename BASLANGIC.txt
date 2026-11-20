@@ -1,0 +1,14 @@
+GÜRBÜZ OTO — V6
+
+1. ZIP’i çıkartın. index.html dosyasını açın.
+2. GitHub Desktop adımları README.md dosyasındadır.
+3. GitHub Pages Source ayarı GitHub Actions olmalıdır.
+4. Alan adı belirtilmedi. İş akışı gerçek yayın adresinden canonical ve sitemap üretir.
+5. Farklı hosting için YAYINA_HAZIRLA.bat kullanın; Node.js 22+ gerekir.
+6. SEO anahtar kelime çalışması ve testler docs klasöründedir.
+
+Yapılmış gibi gösterilmeyenler:
+- Google’da ilk sıra / sabit 100 garantisi verilmedi.
+- Google İşletme Profili, Search Console ve Ads hesaplarına işlem yapılmadı.
+- Gerçek dönüşüm takibi bağlanmadı. Mesaj formu WhatsApp’ı açar, kendisi mesaj göndermez.
+- Verilmeyen çalışma saati, fiyat, puan, yorum veya koordinat üretilmedi.
