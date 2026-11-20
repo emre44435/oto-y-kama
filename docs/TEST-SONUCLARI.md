@@ -1,18 +1,32 @@
-# Teslim kontrolleri
+# Son final kontrolü — 21 Kasım 2026
 
-20 Kasım 2026 · Gürbüz Oto Kuaför & Lastik
+Ana adres: https://darendeyikama.com/
 
-| Deneme | Sonuç |
+| Kontrol | Sonuç |
 |---|---|
-| Görünüm | Chromium’da 20 sayfa 320, 390, 768, 1024, 1440 ve 1920 pikselde açıldı. Ana sayfa ve hizmet listesi ara genişliklerde de denendi. Toplam 146 sayfa ve genişlik birleşimi, 815 kontrol, 0 hata. |
-| Banner ve kartlar | 1024, 1440 ve 1920 piksel masaüstü testlerinde banner ile görsel aynı yükseklikte bitti. Mobil metin, tabelanın altında kaldı. Hizmet görselleri kart çerçevelerini doldurdu, yatay sayfa taşması görülmedi. |
-| Menü, filtre ve galeri | Mobil menünün açılması, kapanması ve odak dönüşü; hizmet filtresi; galeride ileri, geri ve Escape ile kapanış doğrulandı. |
-| İletişim | Fiyat formuna girilen örnek bilgiler doğru işletme numarasında WhatsApp taslağı oluşturdu. Harita kendiliğinden yüklenmedi. Kullanıcının açma ve kapatma işlemi ile hedef adres denetlendi. |
-| JavaScript kapalı mobil görünüm | 375 piksel çerçevede menü, doğrudan WhatsApp ve harita bağlantıları, ana başlık ve beş yasal bağlantı erişilebilir kaldı. Yatay taşma görülmedi. |
-| Sayfa ve bağlantılar | Kaynak ve yayın kopyasında 20 HTML sayfası ile 1.226 yerel bağlantı/kaynak başvurusu doğrulandı. Tek H1, benzersiz başlık ve açıklamalar, sayfa içi hedefler, resim dosyaları, telefon ve WhatsApp bağlantıları denetlendi. |
-| Yerel SEO | Üç şehirden yol tarifindeki başlangıç noktaları, 9 hizmetin yapılandırılmış verileri, 15 benzersiz sitemap adresi ve bunlarla eşleşen canonical bağlantıları kontrol edildi. |
-| Yayın paketi | Ana alan adı ve alt klasör örnekleriyle iki ayrı paket üretildi. İkisinde de çevrimdışı hazırlayıcının 87 yayın dosyası Node.js çıktısıyla dosya dosya aynıydı. Alt klasörde isteğe bağlı e-posta ve barındırma bilgilerinin eklenmesi de doğrulandı. |
-| İlk yükleme | 1363 piksel Chromium önizlemesinde ilk yükleme sırasında üçüncü taraf alan adlarına 0 istek yapıldı. Tek yerel ölçümde en büyük içerik boyaması (LCP) 144 ms, kayma (CLS) 0 oldu. Bu ölçümde mobil ağ yavaşlatması uygulanmadı. |
-| Halka açık ortamda ölçüm | Alan adı, hosting, gerçek kullanıcı trafiği ve Search Console mülküyle yapılacak ölçümler yayın sonrasına aittir. GitHub Pages iş akışında mobil ve masaüstü Lighthouse raporu üretimi tanımlıdır. |
+| Alan adının Latin / ASCII biçimi | darendeyikama.com doğrulandı; Türkçe karakter veya punycode gerektirmiyor |
+| CNAME | Yalnızca darendeyikama.com ve satır sonu içerir |
+| Canonical / Open Graph / JSON-LD | 15 indeks veya gizlilik sayfasında seçilen HTTPS alan adı doğrulandı |
+| Sitemap | 14 benzersiz adres; 404 ve noindex gizlilik sayfası hariç |
+| robots.txt | https://darendeyikama.com/sitemap.xml satırı doğrulandı |
+| HTML | 16 sayfada UTF-8, tek H1, viewport ve açıklama kontrolü geçti |
+| Yerel dosyalar | Bağlantı, görsel, script ve favicon yolları dosyalarla eşleştirildi |
+| WhatsApp | +90 544 305 41 44 ve URL kodlamalı mesajlar doğrulandı |
+| Yeni favicon | Otomobil, lastik ve kırmızı kavis içeren SVG; PNG ve ICO dosyaları üretildi |
+| Favicon boyutları | ICO 16/32/48/64, PNG 16/32/192/512 ve Apple 180 doğrulandı |
+| Manifest | İkonların dosya varlığı ve gerçek PNG ölçüleri doğrulandı |
+| Yapılandırma tekrarı | Aynı alan adıyla ikinci çalıştırma ve kaynak dosyalarının değişmezliği kontrol edildi |
+| Yayın çıktısı | _site üretimi ve kaynakla dosya eşliği kontrol edildi |
+| Mobil/masaüstü tasarım | Önceki V6’da incelenen düzen korunmuştur; bu turda yeni cihaz/arayüz testi yapıldığı iddia edilmez |
+| Lighthouse / PageSpeed | Bu turda canlı alan adında ölçülmedi; 100 puan sonucu ilan edilmedi |
+| Önceki Lighthouse denemesi | V6’da Chromium debugging portuna ulaşılamadığı için rapor tamamlanmamıştı |
+| GitHub Actions | Kaynak doğrulama ve yayın sonrası Lighthouse raporu işi hazır; kullanıcının hesabında çalıştırılmadı |
+| Yayın / DNS / SSL | Bu teslimde gerçekleştirilmedi |
+| Google dizin / sıralama | Kontrol edilmedi; ilk sıra garantisi verilmedi |
+| Google Ads / GA4 / GTM | Gerçek hesap kimlikleri bağlanmadı; aktif dönüşüm ölçümü iddiası yok |
 
-Kontrollerde gerçek arama, sipariş veya WhatsApp mesajı gönderilmedi. Harita bağlantısı işletme adı ve sokağı kullanır. Yerinde giriş kapısı ve Google işletme pini bağımsız olarak teyit edilmemiştir.
+Favicon yerel dosya olarak incelendi. Google arama sonuçlarında görünmesi, yayın ve Google’ın yeniden taramasından sonra değerlendirilir; görünme garantisi yoktur.
+
+Kaynaklar:
+- https://developers.google.com/search/docs/appearance/favicon-in-search
+- https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site

@@ -26,15 +26,16 @@ jobs:
       - name: Pages adresini al
         id: pages
         uses: actions/configure-pages@v5
-      - name: Yayın adresiyle siteyi ve site haritasını hazırla
+      - name: darendeyikama.com için SEO dosyalarını doğrula
         env:
-          SITE_URL: ${{ steps.pages.outputs.base_url }}
-          BUSINESS_EMAIL: ${{ vars.BUSINESS_EMAIL }}
-          HOSTING_NAME: GitHub Pages (GitHub, Inc.)
-          HOSTING_INFO_URL: https://support.github.com/contact
+          SITE_URL: https://darendeyikama.com/
+        run: node scripts/configure-site.mjs
+      - name: Siteyi doğrula
+        run: |
+          node scripts/check.mjs
+          node scripts/verify-release.mjs
+      - name: Yayın dosyalarını hazırla
         run: node scripts/build-public.mjs
-      - name: Yayına giden dosyaları kontrol et
-        run: node scripts/check.mjs --public
       - uses: actions/upload-pages-artifact@v4
         with:
           path: _site

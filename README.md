@@ -1,51 +1,44 @@
-# Gürbüz Oto Kuaför & Lastik
+# Gürbüz Oto — darendeyikama.com / Son final
 
-Darende’deki atölyenin Türkçe tanıtım sitesi. Klasörde düzenlenebilir 20 HTML sayfası, yerel Manrope fontları, WebP fotoğraflar, CSS, JavaScript ve yayın araçları bulunur. Ana sayfa, hizmetler, adres ve yasal içerikler HTML’nin içindedir.
+Seçilen ana adres: https://darendeyikama.com/
 
-## İlk yayın
+Alan adı standart ASCII / Latin harfleriyle yazılmıştır. Canonical, Open Graph, Twitter paylaşım görseli, işletme/hizmet yapılandırılmış verileri, robots.txt ve 14 sayfalık sitemap bu adrese göre hazırlandı. 16 HTML sayfası vardır; gizlilik sayfası ve 404 sitemap dışında tutulur.
 
-Teslim ZIP’inin üst klasöründeki **YAYIN_PAKETI_HAZIRLA.html** dosyasını açın. Gerçek site adresinizi yazın. Yasal bilgiler bölümüne işletme e-postasını, barındırma şirketini ve şirketin iletişim sayfasını ekleyin. **Yayın ZIP’ini oluştur** düğmesine basın. İnen dosyanın içeriğini hostingin yayın klasörüne çıkartın. Ana sayfa, diğer sayfalar, görseller, JavaScript, CSS, manifest, favicon, özel 404, robots.txt ve site haritası birlikte yüklenir.
+## Önizleme
 
-Hazırlayıcı bu sürümün bir kopyasını içinde taşır. Aşağıdaki kaynak dosyalarını sonradan düzenlediğinizde güncel dosyaları Node.js veya GitHub Pages yöntemiyle yayınlayın.
+ZIP’i çıkarıp index.html dosyasını açın. İsterseniz Node.js 22+ ile `npm run dev` çalıştırın. Bağımlılık kurulumu gerekmez. Kaynak HTML ve görseller doğrudan kullanılabilir; yayın öncesinde tekrar alan adı girmeniz gerekmez.
 
-## Önizleme ve kaynak kod
+## GitHub Desktop ve GitHub Pages
 
-Klasördeki index.html dosyası çift tıklamayla açılır. Geliştirme için Node.js 22 veya üstü ile aşağıdaki komut çalışır. Ek paket gerekmez.
+1. ZIP’ten çıkan gurbuz-oto-web klasörünün içeriğini GitHub deposunun köküne yerleştirin. index.html deponun kökünde olmalı; ikinci bir klasörün içinde kalmamalı.
+2. GitHub Desktop üzerinden commit ve Publish repository / Push origin işlemini yapın.
+3. GitHub deposu Settings → Pages → Source alanını GitHub Actions seçin.
+4. Pages → Custom domain alanına `darendeyikama.com` yazıp kaydedin. Alan adı sahiplik doğrulamasını hesabınızda tamamlayın.
+5. Alan adı sağlayıcınızdaki DNS’i GitHub Pages için yapılandırın. Önce GitHub’daki custom domain ayarını yapın; sonra DNS’i bağlayın. Kullanıcı adınız / depo adresiniz bu teslimde bilinmediği için bu hesabınıza özel işlem yapılmadı.
+6. DNS doğrulandıktan ve sertifika hazır olduktan sonra Enforce HTTPS’i etkinleştirin.
+7. Actions → “GitHub Pages — Gürbüz Oto” iş akışını çalıştırın. Normal main/master push işlemleri de iş akışını tetikler. Pages ayarından önce gönderdiyseniz Run workflow ile yeniden başlatın.
 
-```sh
-npm run dev
-```
+CNAME dosyası darendeyikama.com içerir. GitHub Actions yayınlarında tek başına bu dosya alan adını bağlamaz; Pages → Custom domain ve DNS ayarları ayrıca gerekir. İş akışındaki SITE_URL sabit olarak https://darendeyikama.com/ kullanır; varsayılan github.io adresine göre canonical üretmez.
 
-Tarayıcıda http://localhost:3000 adresini açın. Menü, galeri, hizmet filtresi, WhatsApp taslağı ve isteğe bağlı harita script.js içindedir. Renkler, oranlar ve mobil davranış style.css içindedir. Sayfa metinleri ayrı HTML dosyalarındadır. Başlık, açıklama veya sayfa adresi değiştiğinde scripts/pages.json dosyasındaki ilgili kaydı da düzeltin.
+Resmî kurulum rehberi: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
 
-## Düzenlenen kaynakları paketleme
+## cPanel / farklı hosting
 
-Windows’ta YAYINA_HAZIRLA.bat yayın adresini sorar. Komut satırında ise aşağıdaki komutları kullanın. Örnek adresin yerine sitenin açılacağı gerçek tam adresi yazın.
+`npm run build` komutuyla üretilen _site klasörünün içeriği web köküne yüklenebilir. _site klasörünün kendisini ikinci bir alt klasör olarak yüklemeyin. Node.js sunucuda gerekli değildir; çıktı tamamen statiktir. Alan adı ve SSL, hosting panelinde ayrıca bağlanmalıdır.
 
-```sh
-node scripts/configure-site.mjs --url https://site-adiniz.example/
-node scripts/build-public.mjs
-node scripts/check.mjs --public
-```
+## Favicon
 
-Bu işlem _site klasörüne temiz bir yayın üretir. Klasörün içeriğini hostingin web köküne yükleyin. Site bir alt dizinde çalışıyorsa ilk komutta tam alt dizini de belirtin. Kurulum dosyası site-config.json içinde siteUrl ile beraber email, provider ve providerUrl alanları kullanılabilir. Komut satırında karşılık gelen ortam değişkenleri BUSINESS_EMAIL, HOSTING_NAME ve HOSTING_INFO_URL şeklindedir.
+Logodaki otomobil, lastik ve kırmızı kavis detaylarını taşıyan tek tasarım kullanılır. Kök favicon.svg, çok boyutlu favicon.ico (16/32/48/64), 16/32 PNG, 192/512 uygulama ikonları ve 180 Apple touch ikonu pakettedir. Tüm sayfaların link etiketleri ve web manifesti güncellendi. Marka logosunun tamamı header/footer için korunur.
 
-## GitHub Pages
+## Kontroller
 
-Kaynak klasörünün içeriğini, gizli .github klasörüyle birlikte deponun köküne ekleyin. GitHub’da Settings → Pages → Build and deployment altında GitHub Actions seçin. Ana dala gönderimden sonra Actions içindeki “GitHub Pages — Gürbüz Oto” iş akışı çalışır. Gerekirse Run workflow ile başlatın. İşletme e-postasını depo ayarlarında Actions değişkeni BUSINESS_EMAIL olarak ekleyebilirsiniz.
+- `npm run check`: yerel bağlantılar, WhatsApp adresleri, tek H1, meta etiketleri, JSON-LD, canonical/OG alan adları, sitemap, CNAME, UTF-8 ve favicon dosyaları.
+- `npm run build`: yalnızca yayın dosyalarını _site klasörüne çıkarır.
+- GitHub’da yayın sonrasında iş akışı mobil/masaüstü Lighthouse raporu üretmek üzere hazırlanmıştır. Bu iş akışı sizin hesabınızda henüz çalıştırılmadı.
+- Gerçek kapsam: docs/TEST-SONUCLARI.md. SEO planı ve anahtar kelime çalışması docs klasöründedir.
 
-İş akışı yayın adresini Pages’ten alır, GitHub Pages’i yer sağlayıcı olarak ekler, _site içeriğini üretip denetler ve yayına gönderir. Mobil ve masaüstü Lighthouse raporları Actions çıktısına eklenir. Alan adınız değişirse iş akışını yeniden çalıştırın.
+## Yayın ve ölçüm durumu
 
-## Site haritası ve barındırma
+Bu teslim dosya hazırlığıdır. GitHub’a veya hosting hesabınıza yayın yapılmadı; DNS/SSL bağlantısı, Search Console sahipliği ve sitemap gönderimi, Google İşletme Profili düzenlemesi yapılmadı. Gerçek Google Ads / GA4 / GTM kimlikleri verilmediği için dönüşüm izleme bağlanmadı. dataLayer olayları yalnızca hazırlıktır; tamamlanan telefon konuşması veya gönderilmiş WhatsApp mesajı ölçüldüğü iddia edilmez.
 
-Yayın aracı, scripts/pages.json içindeki dizine açık sayfaların tam adreslerini sitemap.xml dosyasına yazar. robots.txt de aynı site haritasına bağlanır. Google, robots.txt dosyasını alan adının kökünde arar. Başka bir sitenin alt klasörünü kullanıyorsanız ana alanın robots.txt ayarını hosting yöneticisiyle kontrol edin ve tam sitemap adresini Search Console’a gönderin.
-
-Apache’de .htaccess, GitHub Pages, Cloudflare Pages ve Netlify’da 404.html hata sayfası içindir. Farklı sunucularda 404 yanıtını hosting panelinde 404.html dosyasına bağlayın. _headers dosyası bunu destekleyen servislerde statik dosya önbelleğini ve yanıt başlıklarını ayarlar.
-
-## İletişim ve işletme bilgileri
-
-Telefon ve WhatsApp numarası 0544 305 41 44. Vergi levhasındaki yazışma adresi Sungur Mahallesi, Solakoğlu Site Sokak No. 6, Darende / Malatya. Yol tarifleri işletme adı ve sokakla arama yapar. Ziyaretçi gelmeden önce telefonla giriş ve müsaitlik teyidi alabilir.
-
-WhatsApp formu ziyaretçinin yazdıklarını kendi tarayıcısında mesaj taslağına dönüştürür. WhatsApp düğmesine basınca taslak WhatsApp’a aktarılır. Sitede ödeme ve sipariş kaydı bulunmaz. Harita yalnızca ziyaretçi açarsa yüklenir. Reklam, analitik veya yeni bir form sağlayıcısı eklendiğinde KVKK aydınlatması ve çerez politikası gerçek veri akışına göre yeniden düzenlenmelidir.
-
-Fotoğraf galerisinde özgün işletme çekimleri yer alır. Hizmet kartlarında farklı oranlardaki fotoğrafların çevresi 3:2 çerçeveyi tamamlamak için düzenlenmiştir. Yerel fontun lisansı assets/fonts/OFL.txt içindedir. SEO hedefleri ve teslim testleri docs dizinindedir.
+Çalışma saatleri, fiyatlar, kesin harita pini, stok adetleri ve müşteri puanları verilmediği için uydurulmadı. Harita adres bazlı aramadır. Google’da birincilik veya ölçülmemiş 100 puan sonucu vaat edilmez.

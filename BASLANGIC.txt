@@ -1,5 +1,12 @@
-Önizleme için bu klasördeki index.html dosyasını açın.
+GÜRBÜZ OTO — DARENDEYIKAMA.COM / SON FİNAL
 
-İlk yayın için teslim paketinin üst klasöründeki YAYIN_PAKETI_HAZIRLA.html dosyasını açın. Sitenizin adresini ve işletme iletişim bilgilerini girin. Araç, tüm siteyi, robots.txt dosyasını ve gerçek adresinizle doldurulmuş sitemap.xml dosyasını yeni bir ZIP içinde indirir.
+1. ZIP’i çıkarın. index.html dosyasını açın.
+2. Alan adı koda işlendi: https://darendeyikama.com/
+3. Canonical, sitemap, robots, JSON-LD ve paylaşım etiketleri hazır.
+4. Yeni favicon SVG, ICO ve PNG boyutlarıyla eklendi.
+5. GitHub Desktop / Pages bağlantısı ve DNS adımları README.md içinde.
+6. Alan adının satın alınması, DNS ve SSL ayarları ayrıca yapılmalıdır.
+7. Bu teslimde canlıya yayın veya Search Console’a gönderim yapılmadı.
 
-Kaynakları sonradan düzenlediğinizde güncel dosyaları Windows'ta YAYINA_HAZIRLA.bat ile veya README.md içindeki GitHub Pages ve Node.js adımlarıyla yayınlayın.
+Testler: docs/TEST-SONUCLARI.md
+SEO / anahtar kelimeler: docs klasörü

@@ -1,13 +1,13 @@
 [
   {
     "file": "index.html",
-    "title": "Darende Oto Yıkama, Oto Kuaför ve Lastik | Gürbüz Oto",
-    "description": "Malatya Darende’de oto yıkama, pasta cila, lastik tamiri, ikinci el lastik ve jant alım satımı. Gürbüz Oto, Sungur Mahallesi. Randevu ve stok için 0544 305 41 44."
+    "title": "Darende Oto Yıkama, Oto Kuaför & Lastik | Gürbüz Oto",
+    "description": "Darende Sungur’da Gürbüz Oto: oto yıkama, oto kuaför, pasta cila, ikinci el ve sıfır lastik, jant alım satımı ve lastik tamiri. 0544 305 41 44."
   },
   {
     "file": "hizmetler/index.html",
-    "title": "Darende Oto Bakım ve Lastik Hizmetleri | Gürbüz Oto",
-    "description": "Darende’de oto yıkama, detaylı iç temizlik, pasta cila, lastik ve jant hizmetlerini inceleyin. Gürbüz Oto’dan aracınıza göre fiyat ve randevu bilgisi alın."
+    "title": "Darende Oto Bakım, Yıkama & Lastik Hizmetleri | Gürbüz",
+    "description": "Gürbüz Oto Darende hizmetleri: oto yıkama, kuaför, pasta cila, detaylı temizlik, ikinci el ve sıfır lastik, lastik tamiri ve jant alım satımı."
   },
   {
     "file": "hizmetler/oto-yikama/index.html",
@@ -61,42 +61,12 @@
   },
   {
     "file": "iletisim/index.html",
-    "title": "Gürbüz Oto Darende | Telefon, WhatsApp ve Yol Tarifi",
-    "description": "0544 305 41 44 üzerinden Gürbüz Oto’ya ulaşın. Adresimiz Sungur Mahallesi, Solakoğlu Site Sokak, Darende / Malatya. Fiyat, randevu ve yol tarifi."
+    "title": "Gürbüz Oto Darende İletişim, Adres & Harita",
+    "description": "Gürbüz Oto telefon ve WhatsApp: 0544 305 41 44. Sungur Mahallesi Solakoğlu Sanayi Sitesi No: 3 Darende Malatya. Yol tarifi ve hizmet talebi."
   },
   {
     "file": "bolgeler/index.html",
-    "title": "Darende’ye Yol Tarifi | Malatya, Gürün ve Elbistan’dan Gürbüz Oto",
-    "description": "Malatya merkez, Gürün ve Elbistan’dan Gürbüz Oto’ya yol tarifi. Oto bakım ve lastik işlemleri için Darende Sungur’daki atölyenin adresi, telefonu ve randevu bilgisi."
-  },
-  {
-    "file": "yasal-bilgiler/index.html",
-    "title": "İşletme bilgileri | Gürbüz Oto Darende",
-    "description": "Gürbüz Oto’nun işletmecisi, kayıtlı iş yeri adresi ve iletişim bilgileri.",
-    "index": true
-  },
-  {
-    "file": "kvkk/index.html",
-    "title": "KVKK aydınlatma metni | Gürbüz Oto Darende",
-    "description": "Site ziyareti, fiyat soruları ve randevu talepleri sırasında kişisel verilerin nasıl işlendiği ve haklarınızı nasıl kullanabileceğiniz.",
-    "index": false
-  },
-  {
-    "file": "gizlilik/index.html",
-    "title": "Gizlilik politikası | Gürbüz Oto Darende",
-    "description": "Teklif formu, telefon bağlantıları ve isteğe bağlı harita kullanımı hakkında bilgi.",
-    "index": false
-  },
-  {
-    "file": "cerez-politikasi/index.html",
-    "title": "Çerez politikası | Gürbüz Oto Darende",
-    "description": "Bu sitede kullanılan tarayıcı özellikleri ve isteğe bağlı harita hakkında bilgi.",
-    "index": false
-  },
-  {
-    "file": "kullanim-kosullari/index.html",
-    "title": "Site kullanım koşulları | Gürbüz Oto Darende",
-    "description": "Hizmet bilgileri, fiyat ve stok sorguları ile randevu taleplerinin nasıl değerlendirildiği.",
-    "index": false
+    "title": "Darende, Gürün & Elbistan Ulaşım | Gürbüz Oto",
+    "description": "Darende Sungur’daki Gürbüz Oto’ya ulaşım: Darende mahalleleri, Gürün, Elbistan ve Malatya ilçeleri için ziyaret, stok sorgusu ve iletişim bilgisi."
   }
 ]
