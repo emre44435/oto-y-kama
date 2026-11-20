@@ -1,3 +1,2 @@
 User-agent: *
 Allow: /
-# Gerçek yayın adresi verilmedi. GitHub Pages workflow'u sitemap satırını otomatik ekler.

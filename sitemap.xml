@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Gerçek alan adı belirtilmediği için uydurma URL eklenmedi.
-     GitHub Pages workflow'u gerçek site adresiyle bu dosyayı otomatik oluşturur.
-     Diğer hosting: node scripts/configure-site.mjs --url GERCEK_SITE_ADRESI -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>

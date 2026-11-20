@@ -1,53 +1,51 @@
-# Gürbüz Oto Kuaför & Lastik — V6
+# Gürbüz Oto Kuaför & Lastik
 
-Derleme gerektirmeyen HTML, CSS ve JavaScript sitesi. Ana dosyalar `index.html`, `style.css`, `script.js`. Sayfa içerikleri HTML içinde yer alır; Google ve JavaScript kapalı tarayıcılar okuyabilir.
+Darende’deki atölyenin Türkçe tanıtım sitesi. Klasörde düzenlenebilir 20 HTML sayfası, yerel Manrope fontları, WebP fotoğraflar, CSS, JavaScript ve yayın araçları bulunur. Ana sayfa, hizmetler, adres ve yasal içerikler HTML’nin içindedir.
 
-## Hemen görüntüleme
+## İlk yayın
 
-ZIP’i çıkartın ve `index.html` dosyasını açın. Tüm hizmet, adres ve iletişim sayfaları pakettedir. WhatsApp formu mesajı hazırlar; gönderimi ziyaretçi yapar. Site üzerinde ödeme veya sunucuya kayıt yapan bir form yoktur.
+Teslim ZIP’inin üst klasöründeki **YAYIN_PAKETI_HAZIRLA.html** dosyasını açın. Gerçek site adresinizi yazın. Yasal bilgiler bölümüne işletme e-postasını, barındırma şirketini ve şirketin iletişim sayfasını ekleyin. **Yayın ZIP’ini oluştur** düğmesine basın. İnen dosyanın içeriğini hostingin yayın klasörüne çıkartın. Ana sayfa, diğer sayfalar, görseller, JavaScript, CSS, manifest, favicon, özel 404, robots.txt ve site haritası birlikte yüklenir.
 
-İsterseniz Node.js 22+ ile `npm run dev` komutunu çalıştırıp `http://localhost:3000` adresinden inceleyin. Paket kurulumu veya `npm install` gerekmez.
+Hazırlayıcı bu sürümün bir kopyasını içinde taşır. Aşağıdaki kaynak dosyalarını sonradan düzenlediğinizde güncel dosyaları Node.js veya GitHub Pages yöntemiyle yayınlayın.
 
-## GitHub Desktop ile yayın
+## Önizleme ve kaynak kod
 
-1. ZIP’ten çıkan `gurbuz-oto-web` klasörünü bilgisayarınıza alın.
-2. GitHub Desktop → File → Add local repository ile bu klasörü seçin. Git deposu bulunamadığı uyarısında aynı konumda depo oluşturma seçeneğini kullanın. Alternatif olarak yeni bir depo oluşturup bu klasörün **içeriğini** deponun köküne kopyalayın.
-3. Dosyaları commit edin ve Publish repository / Push origin ile gönderin. GitHub Pages erişimi hesabınızın planına ve depo görünürlüğüne bağlıdır.
-4. GitHub’daki depo → Settings → Pages → Build and deployment → Source: **GitHub Actions** seçin.
-5. Actions sekmesinden “GitHub Pages — Gürbüz Oto” iş akışını çalıştırın. İlk gönderim Pages ayarından önce yapıldıysa Run workflow ile yeniden başlatın.
-6. İş akışı gerçek Pages adresini alır; canonical, paylaşım etiketleri, yapılandırılmış veri URL’leri, `sitemap.xml` ve `robots.txt` içindeki Sitemap satırını üretir. Sonra dosyaları kontrol eder ve yayınlar.
-7. Yayın tamamlandığında Settings → Pages içinde verilen URL’yi açın. Alan adınızı daha sonra bağlarsanız Pages ayarını güncelleyip iş akışını yeniden çalıştırın.
-
-Bu teslimde sizin adınıza GitHub deposu oluşturulmadı, yayın yapılmadı ve Search Console’a gönderim yapılmadı. İş akışı hazırlandı; hesabınızda çalıştırılmalıdır.
-
-## Alan adı, cPanel veya farklı hosting
-
-Alan adı verilmediği için kaynak HTML’de hayalî canonical adresi bulunmaz. Kaynak `sitemap.xml` bilerek boştur. Gerçek URL belli olduğunda:
+Klasördeki index.html dosyası çift tıklamayla açılır. Geliştirme için Node.js 22 veya üstü ile aşağıdaki komut çalışır. Ek paket gerekmez.
 
 ```sh
-node scripts/configure-site.mjs --url https://GERCEK-YAYIN-ADRESINIZ/
-npm run check
-npm run build
+npm run dev
 ```
 
-Komuttaki örnek metni kendi gerçek adresinizle değiştirin. Windows’ta `YAYINA_HAZIRLA.bat` aynı işlemleri adresinizi sorarak yapar. `_site` içeriğini `public_html` gibi web köküne yükleyin. GitHub Pages’in **Deploy from a branch** yöntemi kullanılacaksa bu hazırlığı önce yerelde yapıp üretilen kök dosyaları commit edin. Proje alt dizininde Pages kullanırken `robots.txt` Google tarafından alan adının kökünde aranır; proje altındaki dosya tüm `github.io` alanını yönetmez. Sitemap’in tam URL’sini Search Console’a gönderin. Özel alan adı bu sınırlamayı kaldırır.
+Tarayıcıda http://localhost:3000 adresini açın. Menü, galeri, hizmet filtresi, WhatsApp taslağı ve isteğe bağlı harita script.js içindedir. Renkler, oranlar ve mobil davranış style.css içindedir. Sayfa metinleri ayrı HTML dosyalarındadır. Başlık, açıklama veya sayfa adresi değiştiğinde scripts/pages.json dosyasındaki ilgili kaydı da düzeltin.
 
-## Düzenleme
+## Düzenlenen kaynakları paketleme
 
-- Renk, düzen ve mobil kırılımlar: `style.css`.
-- Menü, filtre, galeri ve WhatsApp mesaj oluşturma: `script.js`.
-- Hizmet metinleri: `hizmetler/*/index.html`.
-- Sayfa başlığı veya açıklaması değişirse ilgili HTML etiketi ve `scripts/pages.json` kaydını birlikte güncelleyin.
-- SEO: `docs/SEO-PLANI.md`, `docs/ANAHTAR-KELIMELER.csv`, `docs/YERLESIMLER.csv`.
-- Gerçek test kapsamı ve sonuçları: `docs/TEST-SONUCLARI.md`.
-- Görseller: `assets/images`. Yerel font ve lisansı: `assets/fonts`.
+Windows’ta YAYINA_HAZIRLA.bat yayın adresini sorar. Komut satırında ise aşağıdaki komutları kullanın. Örnek adresin yerine sitenin açılacağı gerçek tam adresi yazın.
 
-## Ölçüm durumu
+```sh
+node scripts/configure-site.mjs --url https://site-adiniz.example/
+node scripts/build-public.mjs
+node scripts/check.mjs --public
+```
 
-Telefon, WhatsApp ve yön tarifi tıklamaları için sayfa belleğinde `contact_click` olayları hazırlanır. GA4, GTM veya Google Ads hesabı bağlanmadı; gerçek dönüşüm ölçümü kurulmuş değildir. Tıklama, tamamlanan arama veya gönderilen WhatsApp mesajını tek başına kanıtlamaz. Ölçüm için gerçek hesap kimlikleri, tercih/izin yönetimi ve yayında doğrulama gerekir.
+Bu işlem _site klasörüne temiz bir yayın üretir. Klasörün içeriğini hostingin web köküne yükleyin. Site bir alt dizinde çalışıyorsa ilk komutta tam alt dizini de belirtin. Kurulum dosyası site-config.json içinde siteUrl ile beraber email, provider ve providerUrl alanları kullanılabilir. Komut satırında karşılık gelen ortam değişkenleri BUSINESS_EMAIL, HOSTING_NAME ve HOSTING_INFO_URL şeklindedir.
 
-## Doğruluk sınırları
+## GitHub Pages
 
-Çalışma saatleri, kesin koordinat / Google Place ID, fiyatlar, stok adetleri, müşteri yorumları ve puanları verilmediği için uydurulmadı. Harita, paylaşılan adres üzerinden arama yapar; işletme pini bağımsız olarak doğrulanmadı. Şubeler veya mobil yol yardım hizmeti eklenmedi. İlk sıra ve değişmez PageSpeed 100 garantisi yoktur. Hız sonuçları raporda belirtilen test koşulları için geçerlidir.
+Kaynak klasörünün içeriğini, gizli .github klasörüyle birlikte deponun köküne ekleyin. GitHub’da Settings → Pages → Build and deployment altında GitHub Actions seçin. Ana dala gönderimden sonra Actions içindeki “GitHub Pages — Gürbüz Oto” iş akışı çalışır. Gerekirse Run workflow ile başlatın. İşletme e-postasını depo ayarlarında Actions değişkeni BUSINESS_EMAIL olarak ekleyebilirsiniz.
 
-Fotoğraf açıklaması: orijinal işletme ve atölye fotoğrafları galeride korunmuştur. Açılış bannerları, gönderdiğiniz görsel referanslar temelinde düzenlenmiş tanıtım kompozisyonlarıdır. Uygulama görselleri gerektiği yerde temsili olarak belirtilmiştir. Şeffaf logo, verdiğiniz logonun arka planı temizlenmiş sürümüdür.
+İş akışı yayın adresini Pages’ten alır, GitHub Pages’i yer sağlayıcı olarak ekler, _site içeriğini üretip denetler ve yayına gönderir. Mobil ve masaüstü Lighthouse raporları Actions çıktısına eklenir. Alan adınız değişirse iş akışını yeniden çalıştırın.
+
+## Site haritası ve barındırma
+
+Yayın aracı, scripts/pages.json içindeki dizine açık sayfaların tam adreslerini sitemap.xml dosyasına yazar. robots.txt de aynı site haritasına bağlanır. Google, robots.txt dosyasını alan adının kökünde arar. Başka bir sitenin alt klasörünü kullanıyorsanız ana alanın robots.txt ayarını hosting yöneticisiyle kontrol edin ve tam sitemap adresini Search Console’a gönderin.
+
+Apache’de .htaccess, GitHub Pages, Cloudflare Pages ve Netlify’da 404.html hata sayfası içindir. Farklı sunucularda 404 yanıtını hosting panelinde 404.html dosyasına bağlayın. _headers dosyası bunu destekleyen servislerde statik dosya önbelleğini ve yanıt başlıklarını ayarlar.
+
+## İletişim ve işletme bilgileri
+
+Telefon ve WhatsApp numarası 0544 305 41 44. Vergi levhasındaki yazışma adresi Sungur Mahallesi, Solakoğlu Site Sokak No. 6, Darende / Malatya. Yol tarifleri işletme adı ve sokakla arama yapar. Ziyaretçi gelmeden önce telefonla giriş ve müsaitlik teyidi alabilir.
+
+WhatsApp formu ziyaretçinin yazdıklarını kendi tarayıcısında mesaj taslağına dönüştürür. WhatsApp düğmesine basınca taslak WhatsApp’a aktarılır. Sitede ödeme ve sipariş kaydı bulunmaz. Harita yalnızca ziyaretçi açarsa yüklenir. Reklam, analitik veya yeni bir form sağlayıcısı eklendiğinde KVKK aydınlatması ve çerez politikası gerçek veri akışına göre yeniden düzenlenmelidir.
+
+Fotoğraf galerisinde özgün işletme çekimleri yer alır. Hizmet kartlarında farklı oranlardaki fotoğrafların çevresi 3:2 çerçeveyi tamamlamak için düzenlenmiştir. Yerel fontun lisansı assets/fonts/OFL.txt içindedir. SEO hedefleri ve teslim testleri docs dizinindedir.

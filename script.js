@@ -7,8 +7,23 @@
   toggle?.addEventListener('click', () => { const open = toggle.getAttribute('aria-expanded') !== 'true'; menu.classList.toggle('is-open', open); toggle.setAttribute('aria-expanded', String(open)); toggle.setAttribute('aria-label', open ? 'Menüyü kapat' : 'Menüyü aç'); });
   $$('#navigation a').forEach(a => a.addEventListener('click', closeMenu));
   document.addEventListener('click', e => { if (!e.target.closest('.header')) closeMenu(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeMenu(); closeLightbox(); } });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') {
+    if (toggle?.getAttribute('aria-expanded') === 'true') { closeMenu(); toggle.focus(); }
+    closeLightbox();
+  } });
   matchMedia('(min-width: 961px)').addEventListener('change', e => { if (e.matches) closeMenu(); });
+
+  menu?.addEventListener('focusout', event => {
+    if (event.relatedTarget && !event.relatedTarget.closest('.header')) closeMenu();
+  });
+  const backTop = $('.backtop');
+  const firstHeader = $('.topbar');
+  if (backTop && firstHeader && 'IntersectionObserver' in window) {
+    const headerObserver = new IntersectionObserver(([entry]) => {
+      backTop.classList.toggle('is-visible', entry.boundingClientRect.bottom < 0);
+    });
+    headerObserver.observe(firstHeader);
+  }
 
   const filters = $$('[data-filter]'), cards = $$('[data-category]');
   filters.forEach(button => button.addEventListener('click', () => {
@@ -52,8 +67,20 @@
     const frame = document.createElement('iframe');
     frame.src = button.dataset.mapSrc;
     frame.title = 'Gürbüz Oto Kuaför ve Lastik, Sungur Mahallesi Darende adres haritası';
-    frame.loading = 'lazy'; frame.referrerPolicy = 'no-referrer-when-downgrade'; frame.allowFullscreen = true;
-    panel.replaceChildren(frame);
+    frame.loading = 'eager';
+    frame.referrerPolicy = 'no-referrer';
+    frame.allowFullscreen = true;
+    const previous = [...panel.childNodes];
+    const close = document.createElement('button');
+    close.type = 'button';
+    close.className = 'map-close';
+    close.textContent = 'Haritayı kapat';
+    close.addEventListener('click', () => {
+      panel.replaceChildren(...previous);
+      button.focus();
+    });
+    panel.replaceChildren(frame, close);
+    close.focus();
     recordContact('map_view', 'Konum', 'harita');
   }));
 

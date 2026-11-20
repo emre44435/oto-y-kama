@@ -1,35 +1,18 @@
-# Test ve teslim durumu — 20 Kasım 2026
+# Teslim kontrolleri
 
-Bu dosya gerçekten yapılan kontrolleri, doğrulanmayan işlemlerden ayırır.
+20 Kasım 2026 · Gürbüz Oto Kuaför & Lastik
 
-| Kontrol | Sonuç |
+| Deneme | Sonuç |
 |---|---|
-| 16 HTML sayfasının yerel dosya bağlantıları | Otomatik kontrol geçti; 598 bağlantı referansı doğrulandı |
-| Sayfa başına tek H1, Türkçe dil, viewport ve açıklama | Geçti |
-| JSON-LD sözdizimi | Tüm sayfalarda JSON ayrıştırma geçti |
-| WhatsApp adresleri | +90 544 305 41 44 ve URL kodlamalı mesajlar doğrulandı |
-| JavaScript sözdizimi | Node.js kontrolü geçti |
-| Gerçek URL üretimi | Ayrı test kopyasında example.org/gurbuz/ ile iki kez çalıştırıldı; tekrar çalıştırma ve alt yol doğrulandı. Bu adres yalnızca testte kullanıldı; teslimde gerçek alan adı gibi yazılmadı |
-| Yayın klasörü üretimi | _site üretimi test kopyasında geçti |
-| Masaüstü görsel kontrol | Gerçek Chromium tarayıcıda ana sayfa ve yeni banner kontrol edildi |
-| Mobil görsel kontrol | Aynı tarayıcıda 390 ve 320 piksel iframe ile responsive düzen incelendi; cihaz testi değildir; dar ekran son kontrolünde yatay taşma bulunmadı |
-| Mobil menü | Açma ve kapatma kontrol edildi |
-| Hizmet filtresi | Lastik & jant seçiminde 3 ilgili kart, tüm hizmetlerde 6 kart doğrulandı |
-| WhatsApp formu | İkinci el lastik, örnek araç, ölçü ve Gürün bölgesiyle mesaj oluşturma kontrol edildi. Gerçek mesaj gönderilmedi |
-| Fotoğraf galerisi | Mobil genişlikte açma/kapatma doğrulandı |
-| Google haritası | Verilen adrese göre URL ve isteğe bağlı iframe yapılandırıldı; kesin işletme pini / Place ID doğrulanmadı |
-| Lighthouse / PageSpeed | Bu ortamda ölçüm tamamlanamadı. Başlatılan Lighthouse, Chromium debugging portuna ulaşamadı. Performans, erişilebilirlik, en iyi uygulamalar ve SEO için ölçülmüş sayısal puan verilmedi |
-| Yayındaki Lighthouse raporu | GitHub Pages iş akışına mobil ve masaüstü rapor üretimi eklendi; henüz kullanıcının GitHub hesabında çalıştırılmadı |
-| Gerçek kullanıcı Core Web Vitals | Canlı kullanıcı verisi olmadığı için ölçülmedi |
-| Google dizin / sıralama | Yayın ve Search Console erişimi olmadığı için doğrulanmadı |
-| Google Ads / GA4 / GTM dönüşümleri | Bağlanmadı; yalnızca sayfa belleğinde olay hazırlığı var |
+| Görünüm | Chromium’da 20 sayfa 320, 390, 768, 1024, 1440 ve 1920 pikselde açıldı. Ana sayfa ve hizmet listesi ara genişliklerde de denendi. Toplam 146 sayfa ve genişlik birleşimi, 815 kontrol, 0 hata. |
+| Banner ve kartlar | 1024, 1440 ve 1920 piksel masaüstü testlerinde banner ile görsel aynı yükseklikte bitti. Mobil metin, tabelanın altında kaldı. Hizmet görselleri kart çerçevelerini doldurdu, yatay sayfa taşması görülmedi. |
+| Menü, filtre ve galeri | Mobil menünün açılması, kapanması ve odak dönüşü; hizmet filtresi; galeride ileri, geri ve Escape ile kapanış doğrulandı. |
+| İletişim | Fiyat formuna girilen örnek bilgiler doğru işletme numarasında WhatsApp taslağı oluşturdu. Harita kendiliğinden yüklenmedi. Kullanıcının açma ve kapatma işlemi ile hedef adres denetlendi. |
+| JavaScript kapalı mobil görünüm | 375 piksel çerçevede menü, doğrudan WhatsApp ve harita bağlantıları, ana başlık ve beş yasal bağlantı erişilebilir kaldı. Yatay taşma görülmedi. |
+| Sayfa ve bağlantılar | Kaynak ve yayın kopyasında 20 HTML sayfası ile 1.226 yerel bağlantı/kaynak başvurusu doğrulandı. Tek H1, benzersiz başlık ve açıklamalar, sayfa içi hedefler, resim dosyaları, telefon ve WhatsApp bağlantıları denetlendi. |
+| Yerel SEO | Üç şehirden yol tarifindeki başlangıç noktaları, 9 hizmetin yapılandırılmış verileri, 15 benzersiz sitemap adresi ve bunlarla eşleşen canonical bağlantıları kontrol edildi. |
+| Yayın paketi | Ana alan adı ve alt klasör örnekleriyle iki ayrı paket üretildi. İkisinde de çevrimdışı hazırlayıcının 87 yayın dosyası Node.js çıktısıyla dosya dosya aynıydı. Alt klasörde isteğe bağlı e-posta ve barındırma bilgilerinin eklenmesi de doğrulandı. |
+| İlk yükleme | 1363 piksel Chromium önizlemesinde ilk yükleme sırasında üçüncü taraf alan adlarına 0 istek yapıldı. Tek yerel ölçümde en büyük içerik boyaması (LCP) 144 ms, kayma (CLS) 0 oldu. Bu ölçümde mobil ağ yavaşlatması uygulanmadı. |
+| Halka açık ortamda ölçüm | Alan adı, hosting, gerçek kullanıcı trafiği ve Search Console mülküyle yapılacak ölçümler yayın sonrasına aittir. GitHub Pages iş akışında mobil ve masaüstü Lighthouse raporu üretimi tanımlıdır. |
 
-## Uygulanan performans önlemleri
-
-Yerel WOFF2 fontlar, responsive WebP görseller, lazy loading, öncelikli açılış görseli, üçüncü taraf JS bağımlılığı olmayan temel sayfa, isteğe bağlı Google haritası, CSS ağırlıklı animasyon ve prefers-reduced-motion desteği.
-
-Puanlar yalnızca testin yapıldığı URL, cihaz ve koşullar için geçerlidir. Kaynak koddan hareketle “100 puan” ilan edilmemiştir. Otomatik erişilebilirlik puanı da tüm kullanıcılar için kusursuz erişilebilirlik garantisi değildir.
-
-## Yayında kullanıcı tarafından tamamlanacaklar
-
-Alan adı / Pages URL’si, HTTPS ve yönlendirme kontrolü, kesin harita pini, çalışma saatleri, Search Console sahipliği ve sitemap gönderimi, Google İşletme Profili düzenlemesi, gerçek ölçüm etiketleri ve uygun tercih yönetimi. GitHub Actions iş akışı hazırlanmıştır; sizin hesabınızda çalıştırılması bu teslimde doğrulanmadı.
+Kontrollerde gerçek arama, sipariş veya WhatsApp mesajı gönderilmedi. Harita bağlantısı işletme adı ve sokağı kullanır. Yerinde giriş kapısı ve Google işletme pini bağımsız olarak teyit edilmemiştir.

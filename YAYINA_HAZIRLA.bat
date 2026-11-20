@@ -10,9 +10,9 @@ if errorlevel 1 (
 )
 node scripts/configure-site.mjs --prompt
 if errorlevel 1 goto :error
-node scripts/check.mjs
-if errorlevel 1 goto :error
 node scripts/build-public.mjs
+if errorlevel 1 goto :error
+node scripts/check.mjs --public
 if errorlevel 1 goto :error
 echo.
 echo Yayına hazır dosyalar _site klasöründedir.

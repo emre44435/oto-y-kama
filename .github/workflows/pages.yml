@@ -26,14 +26,15 @@ jobs:
       - name: Pages adresini al
         id: pages
         uses: actions/configure-pages@v5
-      - name: Gerçek yayın adresiyle SEO dosyalarını oluştur
+      - name: Yayın adresiyle siteyi ve site haritasını hazırla
         env:
           SITE_URL: ${{ steps.pages.outputs.base_url }}
-        run: node scripts/configure-site.mjs
-      - name: Siteyi doğrula
-        run: node scripts/check.mjs
-      - name: Yayın dosyalarını hazırla
+          BUSINESS_EMAIL: ${{ vars.BUSINESS_EMAIL }}
+          HOSTING_NAME: GitHub Pages (GitHub, Inc.)
+          HOSTING_INFO_URL: https://support.github.com/contact
         run: node scripts/build-public.mjs
+      - name: Yayına giden dosyaları kontrol et
+        run: node scripts/check.mjs --public
       - uses: actions/upload-pages-artifact@v4
         with:
           path: _site
