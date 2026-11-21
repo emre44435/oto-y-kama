@@ -1,44 +1,53 @@
-# Gürbüz Oto — darendeyikama.com / Son final
+# Gürbüz Oto — V7 tasarım düzeltmesi
 
-Seçilen ana adres: https://darendeyikama.com/
+Ana adres: https://darendeyikama.com/
 
-Alan adı standart ASCII / Latin harfleriyle yazılmıştır. Canonical, Open Graph, Twitter paylaşım görseli, işletme/hizmet yapılandırılmış verileri, robots.txt ve 14 sayfalık sitemap bu adrese göre hazırlandı. 16 HTML sayfası vardır; gizlilik sayfası ve 404 sitemap dışında tutulur.
+Bu paket, yayınlanan son sürümün tasarım düzeltmesidir. GitHub Desktop ve GitHub Pages için hazır HTML, CSS ve JavaScript içerir; ek bağımlılık kurulumu gerekmez.
 
-## Önizleme
+## Düzeltilen alanlar
 
-ZIP’i çıkarıp index.html dosyasını açın. İsterseniz Node.js 22+ ile `npm run dev` çalıştırın. Bağımlılık kurulumu gerekmez. Kaynak HTML ve görseller doğrudan kullanılabilir; yayın öncesinde tekrar alan adı girmeniz gerekmez.
+- Hizmet kartlarındaki siyah yan boşluklar kaldırıldı. Görseller aynı 4:3 çerçeveyi doldurur; başlıklar ve kart altları aynı hizada kalır.
+- Karttaki görsele veya “Fotoğrafı aç” bağlantısına basıldığında fotoğrafın tamamı açılır. Fotoğraf dosyalarının orijinalleri değiştirilmedi; kartta görselin bir bölümü eşit çerçeveye sığacak şekilde gösterilir.
+- Hakkımızda bölümündeki iki işletme fotoğrafının üst ve alt hizası eşitlendi. Fotoğraf açıklaması, görsellerin altına alındı.
+- Dar ekranlarda kart bağlantıları gerektiğinde satır değiştirir; sayfayı yana itmez.
+- Stil ve JavaScript bağlantıları sürümlendi: `?v=7.0.0-20261121`. Sayfa kaynağındaki `site-version` değeri `7.0.0` olmalıdır.
 
-## GitHub Desktop ve GitHub Pages
+## Mevcut GitHub yayınına uygulama
 
-1. ZIP’ten çıkan gurbuz-oto-web klasörünün içeriğini GitHub deposunun köküne yerleştirin. index.html deponun kökünde olmalı; ikinci bir klasörün içinde kalmamalı.
-2. GitHub Desktop üzerinden commit ve Publish repository / Push origin işlemini yapın.
-3. GitHub deposu Settings → Pages → Source alanını GitHub Actions seçin.
-4. Pages → Custom domain alanına `darendeyikama.com` yazıp kaydedin. Alan adı sahiplik doğrulamasını hesabınızda tamamlayın.
-5. Alan adı sağlayıcınızdaki DNS’i GitHub Pages için yapılandırın. Önce GitHub’daki custom domain ayarını yapın; sonra DNS’i bağlayın. Kullanıcı adınız / depo adresiniz bu teslimde bilinmediği için bu hesabınıza özel işlem yapılmadı.
-6. DNS doğrulandıktan ve sertifika hazır olduktan sonra Enforce HTTPS’i etkinleştirin.
-7. Actions → “GitHub Pages — Gürbüz Oto” iş akışını çalıştırın. Normal main/master push işlemleri de iş akışını tetikler. Pages ayarından önce gönderdiyseniz Run workflow ile yeniden başlatın.
+1. ZIP’i çıkarın. `gurbuz-oto-web` klasörünün **içindeki dosyaları**, mevcut `oto-y-kama` deposunun köküne kopyalayıp aynı dosyaların üzerine yazın. `index.html`, deponun kökünde olmalıdır.
+2. GitHub Desktop’ta değişiklikleri inceleyin, commit oluşturun ve **Push origin** yapın.
+3. GitHub → Actions bölümünde **GitHub Pages — Gürbüz Oto** iş akışının başarıyla tamamlanmasını bekleyin.
+4. https://darendeyikama.com/ adresini `Ctrl + F5` ile açın. Sayfa kaynağında `site-version` → `7.0.0` ve `style.css?v=7.0.0-20261121` göründüğünü doğrulayın.
 
-CNAME dosyası darendeyikama.com içerir. GitHub Actions yayınlarında tek başına bu dosya alan adını bağlamaz; Pages → Custom domain ve DNS ayarları ayrıca gerekir. İş akışındaki SITE_URL sabit olarak https://darendeyikama.com/ kullanır; varsayılan github.io adresine göre canonical üretmez.
+Mevcut DNS, alan adı ve Search Console doğrulamasını yeniden kurmanız gerekmez. Bu paketin hazırlanması tek başına GitHub deposuna gönderim veya canlı yayın değişikliği yapmaz.
 
-Resmî kurulum rehberi: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
+## Yerel önizleme ve kontrol
 
-## cPanel / farklı hosting
+ZIP’ten çıkan `index.html` doğrudan açılabilir. Node.js 22+ varsa:
 
-`npm run build` komutuyla üretilen _site klasörünün içeriği web köküne yüklenebilir. _site klasörünün kendisini ikinci bir alt klasör olarak yüklemeyin. Node.js sunucuda gerekli değildir; çıktı tamamen statiktir. Alan adı ve SSL, hosting panelinde ayrıca bağlanmalıdır.
+```sh
+npm run dev
+npm run check
+npm run build
+```
 
-## Favicon
+`npm run build`, GitHub Pages’e yüklenecek dosyaları `_site` klasörüne hazırlar. GitHub Actions bu adımı otomatik çalıştırır.
 
-Logodaki otomobil, lastik ve kırmızı kavis detaylarını taşıyan tek tasarım kullanılır. Kök favicon.svg, çok boyutlu favicon.ico (16/32/48/64), 16/32 PNG, 192/512 uygulama ikonları ve 180 Apple touch ikonu pakettedir. Tüm sayfaların link etiketleri ve web manifesti güncellendi. Marka logosunun tamamı header/footer için korunur.
+## SEO yapısı
 
-## Kontroller
+- Ana adres, canonical ve paylaşım adresleri `https://darendeyikama.com/` olarak tanımlıdır.
+- Site haritasında 14 indekslenebilir sayfa vardır; gizlilik ve 404 sayfaları harita dışındadır.
+- Oto yıkama, oto kuaför, pasta cila, ikinci el lastik, lastik tamiri, sıfır lastik ve jant için ayrı hizmet sayfaları bulunur.
+- İşletme telefonu, adresi ve yapılandırılmış veriler tutarlıdır. Çevre bölgeler için gerçek işletme adresi Darende olarak belirtilir.
+- `robots.txt`, `sitemap.xml`, favicon ve mobil bağlantılar dahildir.
+- Anahtar kelime eşlemesi ve içerik planı `docs/SEO-PLANI.md` içindedir. Tahmini kelime listeleri, ölçülmüş arama hacmi veya sıralama kanıtı değildir.
 
-- `npm run check`: yerel bağlantılar, WhatsApp adresleri, tek H1, meta etiketleri, JSON-LD, canonical/OG alan adları, sitemap, CNAME, UTF-8 ve favicon dosyaları.
-- `npm run build`: yalnızca yayın dosyalarını _site klasörüne çıkarır.
-- GitHub’da yayın sonrasında iş akışı mobil/masaüstü Lighthouse raporu üretmek üzere hazırlanmıştır. Bu iş akışı sizin hesabınızda henüz çalıştırılmadı.
-- Gerçek kapsam: docs/TEST-SONUCLARI.md. SEO planı ve anahtar kelime çalışması docs klasöründedir.
+## İletişim ve ölçüm
 
-## Yayın ve ölçüm durumu
+Telefon / WhatsApp: +90 544 305 41 44
 
-Bu teslim dosya hazırlığıdır. GitHub’a veya hosting hesabınıza yayın yapılmadı; DNS/SSL bağlantısı, Search Console sahipliği ve sitemap gönderimi, Google İşletme Profili düzenlemesi yapılmadı. Gerçek Google Ads / GA4 / GTM kimlikleri verilmediği için dönüşüm izleme bağlanmadı. dataLayer olayları yalnızca hazırlıktır; tamamlanan telefon konuşması veya gönderilmiş WhatsApp mesajı ölçüldüğü iddia edilmez.
+Adres: Sungur Mahallesi, Solakoğlu Sanayi Sitesi, Gürbüz Oto Yıkama No: 3, Darende / Malatya.
 
-Çalışma saatleri, fiyatlar, kesin harita pini, stok adetleri ve müşteri puanları verilmediği için uydurulmadı. Harita adres bazlı aramadır. Google’da birincilik veya ölçülmemiş 100 puan sonucu vaat edilmez.
+Form, seçilen hizmet, bölge, araç ve lastik ölçüsüyle bir WhatsApp mesajı hazırlar; mesajı ziyaretçi gönderir. Harita, düğmeye basıldıktan sonra verilen adres üzerinden Google’dan yüklenir. GA4 / Google Ads hesap kimlikleri tanımlanmış değildir; gerçek dönüşüm ölçümü bağlı kabul edilmemelidir.
+
+Kontroller ve sınırlar: `docs/TEST-SONUCLARI.md`.
